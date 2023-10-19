@@ -1,6 +1,7 @@
 from classes.LeitorDeAcoes import LeitorDeAcoes
+from classes.GerenciadorDePlanilhas import GerenciadorDePlanilhas
 
-from openpyxl import Workbook
+
 from openpyxl.chart import LineChart, Reference
 from openpyxl.styles import Font, PatternFill, Alignment
 from datetime import date
@@ -11,12 +12,8 @@ acao = 'bidi4'
 leitor_de_acoes = LeitorDeAcoes(caminho_do_arquivo='./dados/')
 leitor_de_acoes.processaArquivo(acao)
 
-#cria um planilha em memoria
-workbook = Workbook()
-
-# pega a atual ativa e muda o nome
-aba_atual = workbook.active
-aba_atual.title = "Dados"
+gerenciador = GerenciadorDePlanilhas()
+planilha_dados = gerenciador.criaPlanilha('Dados')
 
 # criaçao do cabeçalho
 aba_atual.append(['DATA', 'COTAÇAO', 'BANDA INFERIOR', 'BANDA SUPERIOR'])
