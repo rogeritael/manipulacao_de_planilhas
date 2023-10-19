@@ -1,0 +1,9 @@
+planilha[A2] = 'Conteudo'
+
+planilha.append([nome, email, id])
+
+workbook = Workbook()
+aba_atual = workbook.active
+planilha.title
+
+workbook.save('./caminho')
